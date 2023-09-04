@@ -82,10 +82,13 @@ function generateCell(numb, el, css_class, limit) {
         // check if choosen cell contain bombs
 
         if (bombList.includes(numb)) {
-            
-            console.log('damn');
+
+            cell.innerHTML = '<i class="fa-shake" aria-hidden="true">BOOM</i>' 
             cell.classList.add("bg-danger")
-            
+            console.log('damn');
+            document.getElementById('score') = 'You Lost'
+            domElement.innerHTML = ''         
+   
         }
         
     })
