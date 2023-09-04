@@ -30,7 +30,7 @@ input.addEventListener('click', function() {
 
     // list of bombs
 
-    while (bombList.length < 16) {
+    while (bombList.length < 3) {
 
         const bomb = Math.floor(Math.random() * 100) + 1;
       
@@ -86,8 +86,9 @@ function generateCell(numb, el, css_class, limit) {
 
             cell.innerHTML = '<i class="fa-shake" aria-hidden="true">BOOM</i>' 
             cell.classList.add("bg-danger")
+            document.querySelector('h2').innerHTML = 'You lost, your score is: ' + scoreList.length 
+            document.querySelector('h2').classList.add("text-danger")
             console.log('damn');
-            
                     
    
         } else {
@@ -97,10 +98,12 @@ function generateCell(numb, el, css_class, limit) {
 
         } 
 
-        if (scoreList.length === limit - 16) {
+        if (scoreList.length === limit - 3) {
             
 
-            document.querySelector('h2').innerHTML = 'YOU WIN'              
+            document.querySelector('h2').innerHTML = 'WHAT, YOU WIN'
+            document.querySelector('h2').classList.add("text-success")
+                         
             
         }
         
