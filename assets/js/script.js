@@ -88,8 +88,7 @@ function generateCell(numb, el, css_class, limit) {
             cell.classList.add("bg-danger")
             document.querySelector('h2').innerHTML = 'You lost, your score is: ' + scoreList.length 
             document.querySelector('h2').classList.add("text-danger")
-            console.log('damn');
-                    
+            console.log('damn');                   
    
         } else {
 
@@ -100,11 +99,9 @@ function generateCell(numb, el, css_class, limit) {
 
         if (scoreList.length === limit - 16) {
             
-
             document.querySelector('h2').innerHTML = 'WHAT, YOU WIN'
             document.querySelector('h2').classList.add("text-success")
-                         
-            
+                            
         }
         
     })
