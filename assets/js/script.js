@@ -19,19 +19,6 @@ const domElement = document.querySelector('.print');
 const bombList = [];
 const scoreList = [];
 
-while (bombList.length < 16) {
-
-  const bomb = Math.floor(Math.random() * 100) + 1;
-
-  if (bombList.indexOf(bomb) === -1) {
-
-    bombList.push(bomb);
-
-  }
-}
-
-console.log(bombList);
-
 // generate the mine field input
 
 input.addEventListener('click', function() {
@@ -39,7 +26,22 @@ input.addEventListener('click', function() {
     let limit = 100
     domElement.innerHTML = ''
     generateMineField(limit, domElement)
+
+    // list of bombs
+
+    while (bombList.length < 16) {
+
+        const bomb = Math.floor(Math.random() * 100) + 1;
+      
+        if (bombList.indexOf(bomb) === -1) {
+      
+          bombList.push(bomb);
+      
+        }
+   
+    }
     
+    console.log(bombList);
 })
 
 // function to generate mine field
@@ -74,11 +76,25 @@ function generateCell(numb, el, css_class, limit) {
 
     cell.addEventListener('click', function() {
 
-        cell.append(numb)
+        cell.innerHTML = numb
         cell.classList.add("bg-info")
+
+        // check if choosen cell contain bombs
+
+        if (bombList.includes(numb)) {
+            
+            console.log('damn');
+            cell.classList.add("bg-danger")
+            
+        }
         
     })
 
     return cell
     
 }
+
+
+
+
+
