@@ -21,7 +21,7 @@ const scoreList = [];
 
 while (bombList.length < 16) {
 
-  const bomb = Math.floor(Math.random() * 16) + 1;
+  const bomb = Math.floor(Math.random() * 100) + 1;
 
   if (bombList.indexOf(bomb) === -1) {
 
@@ -29,14 +29,20 @@ while (bombList.length < 16) {
 
   }
 }
+
 console.log(bombList);
+
+// generate the mine field input
 
 input.addEventListener('click', function() {
   
     let limit = 100
+    domElement.innerHTML = ''
     generateMineField(limit, domElement)
     
 })
+
+// function to generate mine field
 
 function generateMineField(limit, domElement) {
 
@@ -48,6 +54,8 @@ function generateMineField(limit, domElement) {
     }
     
 }
+
+// function to generate single cells
 
 /**
  * 
@@ -61,32 +69,16 @@ function generateCell(numb, el, css_class, limit) {
 
     console.log(numb);
     const cell = document.createElement(el);
-    cell.append(numb);
     cell.classList.add(css_class);
     cell.style.width = `calc(100% / ${Math.sqrt(limit)})`;
 
     cell.addEventListener('click', function() {
 
+        cell.append(numb)
         cell.classList.add("bg-info")
         
     })
+
+    return cell
     
 }
-
-/* for (let i = 1; i < 101; i++) {
-
-        let cell = document.createElement('div');
-        cell.setAttribute("class",'square py-5 border border-info text-light text-center')
-        domElement.append(cell)
-
-        cell.addEventListener('click', function() {
-        
-                    console.log(i);
-                    cell.innerText = i;
-                    cell.classList.add("bg-info")
-        
-                })
-  
-    }
-
-    input.classList.add('d-none') */

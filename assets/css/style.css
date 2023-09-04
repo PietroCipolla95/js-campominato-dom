@@ -2,5 +2,7 @@
     display: flex;  
     align-items: center;
     justify-content: center;  
-    border: 1px solid aqua;     
+    border: 1px solid aqua;
+    color: white;
+    aspect-ratio: 1;     
 }
