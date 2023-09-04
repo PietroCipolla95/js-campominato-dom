@@ -8,13 +8,44 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 */
 
 const input = document.querySelector('button');
-let cell = document.createElement('div');
+const domElement = document.querySelector('.print');
 
 input.addEventListener('click', function() {
+    
+    let limit = 100
+    
+    generateMineField(limit, domElement)
+    
+})
 
-    const domElement = document.querySelector('.print');
+function generateMineField(limit, domElement) {
 
-    for (let i = 1; i < 101; i++) {
+    for (let i = 0; i < limit; i++) {
+
+        const cell = generateCell(i + 1, 'div', 'mine_cell', limit)
+
+        domElement.append(cell)        
+    }
+    
+}
+
+function generateCell(numb, el, css_class, limit) {
+
+    console.log(numb);
+    const cell = document.createElement(el);
+    cell.append(numb);
+    cell.classList.add(css_class);
+    cell.style.width = `calc(100% / ${Math.sqrt(limit)})`;
+
+    cell.addEventListener('click', function() {
+
+        cell.classList.add("bg-info")
+        
+    })
+    
+}
+
+/* for (let i = 1; i < 101; i++) {
 
         let cell = document.createElement('div');
         cell.setAttribute("class",'square py-5 border border-info text-light text-center')
@@ -26,18 +57,8 @@ input.addEventListener('click', function() {
                     cell.innerText = i;
                     cell.classList.add("bg-info")
         
-                    cell.addEventListener('click', function() {
-        
-                        cell.innerText = '' 
-                        cell.classList.remove("bg-info")
-                        
-                    })
-        
                 })
   
     }
 
-    input.classList.add('d-none')
-
-    
-})
+    input.classList.add('d-none') */
