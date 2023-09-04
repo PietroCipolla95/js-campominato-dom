@@ -19,7 +19,6 @@ const domElement = document.querySelector('.print');
 const bombList = [];
 const scoreList = [];
 
-
 // generate the mine field input
 
 input.addEventListener('click', function() {
@@ -33,7 +32,7 @@ input.addEventListener('click', function() {
 
     while (bombList.length < 16) {
 
-        const bomb = Math.floor(Math.random() * 100) + 1;
+        const bomb = Math.floor(Math.random() * limit) + 1;
       
         if (bombList.indexOf(bomb) === -1) {
       
