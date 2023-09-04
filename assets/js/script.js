@@ -19,18 +19,19 @@ const domElement = document.querySelector('.print');
 const bombList = [];
 const scoreList = [];
 
+
 // generate the mine field input
 
 input.addEventListener('click', function() {
   
-    let limit = 100
     domElement.innerHTML = ''
+    let limit = document.getElementById('grid').value;
     document.getElementById('score').innerHTML = ''
     generateMineField(limit, domElement)
 
     // list of bombs
 
-    while (bombList.length < 3) {
+    while (bombList.length < 16) {
 
         const bomb = Math.floor(Math.random() * 100) + 1;
       
@@ -98,7 +99,7 @@ function generateCell(numb, el, css_class, limit) {
 
         } 
 
-        if (scoreList.length === limit - 3) {
+        if (scoreList.length === limit - 16) {
             
 
             document.querySelector('h2').innerHTML = 'WHAT, YOU WIN'
@@ -112,6 +113,8 @@ function generateCell(numb, el, css_class, limit) {
     return cell
     
 }
+
+
 
 
 

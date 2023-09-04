@@ -6,3 +6,7 @@
     color: white;
     aspect-ratio: 1;     
 }
+
+.my_select {
+    width: 12%;
+}
