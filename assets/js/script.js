@@ -25,6 +25,7 @@ input.addEventListener('click', function() {
   
     let limit = 100
     domElement.innerHTML = ''
+    document.getElementById('score').innerHTML = ''
     generateMineField(limit, domElement)
 
     // list of bombs
@@ -86,9 +87,21 @@ function generateCell(numb, el, css_class, limit) {
             cell.innerHTML = '<i class="fa-shake" aria-hidden="true">BOOM</i>' 
             cell.classList.add("bg-danger")
             console.log('damn');
-            document.getElementById('score') = 'You Lost'
-            domElement.innerHTML = ''         
+            
+                    
    
+        } else {
+
+            scoreList.push(numb)
+            console.log(scoreList);
+
+        } 
+
+        if (scoreList.length === limit - 16) {
+            
+
+            document.querySelector('h2').innerHTML = 'YOU WIN'              
+            
         }
         
     })
