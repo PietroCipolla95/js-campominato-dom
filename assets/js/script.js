@@ -61,14 +61,6 @@ function generateMineField(limit, domElement) {
 
 // function to generate single cells
 
-/**
- * 
- * @param {number} numb index generati
- * @param {string} el elemento in pagina
- * @param {string} css_class classe css applicata all'elemento creato
- * @param {number} limit il massimo di celle che vengono create
-*/
-
 function generateCell(numb, el, css_class, limit) {
 
     console.log(numb);
@@ -76,10 +68,17 @@ function generateCell(numb, el, css_class, limit) {
     cell.classList.add(css_class);
     cell.style.width = `calc(100% / ${Math.sqrt(limit)})`;
     
-    cell.addEventListener('click', function() {
+    cell.addEventListener('click', play())
+
+     return cell
+    
+}
+
+    
+function play() {
+        
         
         cell.innerHTML = numb
-        
         // check if choosen cell contain bombs
     
         if (!bombList.includes(numb)) {
@@ -106,14 +105,7 @@ function generateCell(numb, el, css_class, limit) {
                             
         }
         
-    })
-
-    return cell
-    
-}
-
-    
-
+    }
 
 
 
