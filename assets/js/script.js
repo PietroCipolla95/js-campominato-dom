@@ -43,6 +43,9 @@ input.addEventListener('click', function() {
     }
     
     console.log(bombList);
+
+    
+
 })
 
 // function to generate mine field
@@ -54,6 +57,7 @@ function generateMineField(limit, domElement) {
         console.log(i);
         const cell = generateCell(i + 1, 'div', 'mine_cell', limit)
         domElement.append(cell)
+        
 
     }
     
@@ -62,22 +66,13 @@ function generateMineField(limit, domElement) {
 // function to generate single cells
 
 function generateCell(numb, el, css_class, limit) {
-
+    
     console.log(numb);
     const cell = document.createElement(el);
     cell.classList.add(css_class);
     cell.style.width = `calc(100% / ${Math.sqrt(limit)})`;
-    
-    cell.addEventListener('click', play())
+    cell.addEventListener('click', function() {
 
-     return cell
-    
-}
-
-    
-function play() {
-        
-        
         cell.innerHTML = numb
         // check if choosen cell contain bombs
     
@@ -95,7 +90,6 @@ function play() {
             document.querySelector('h2').classList.add("text-danger")
             console.log('damn');                 
     
-    
         } 
     
         if (scoreList.length === limit - 16) {
@@ -104,8 +98,16 @@ function play() {
             document.querySelector('h2').classList.add("text-success")
                             
         }
-        
-    }
+      
+    })
+
+    return cell
+    
+}
+
+
+
+
 
 
 
